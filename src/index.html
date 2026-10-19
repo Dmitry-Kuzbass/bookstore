@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1.0">
+    <title>Bookstore — Книжный магазин</title>
+</head>
+
+<body>
+
+    <!-- 1. Шапка сайта (Зафиксирована сверху) -->
+    <header class="header">
+        <div class="header__container">
+            <a href="#" class="header__logo">Bookstore</a>
+
+            <nav class="header__menu menu">
+                <ul class="menu__list">
+                    <li class="menu__item"><a href="#" class="menu__link">Книги</a></li>
+                    <li class="menu__item"><a href="#" class="menu__link">Аудиокниги</a></li>
+                    <li class="menu__item"><a href="#" class="menu__link">Акции</a></li>
+                </ul>
+            </nav>
+
+            <div class="header__actions actions">
+                <button class="actions__btn actions__btn--search" aria-label="Поиск"></button>
+                <button class="actions__btn actions__btn--profile" aria-label="Профиль"></button>
+                <button class="actions__btn actions__btn--cart" aria-label="Корзина">
+                    <!-- Бейджик для количества товаров (изначально скрыт или 0) -->
+                    <span class="actions__cart-badge" id="cart-badge">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный контент страницы -->
+    <main class="main">
+
+        <!-- 2. Секция со Слайдером и цветными блоками -->
+        <section class="promo">
+            <div class="promo__container">
+
+                <!-- Сам слайдер -->
+                <div class="promo__slider slider">
+                    <div class="slider__wrapper">
+                        <!-- Слайд 1 (изначально активный) -->
+                        <div class="slider__slide slider__slide--active slider__slide--1">
+                            <div class="slider__content">Книжный Магазин: Новинки 2026</div>
+                        </div>
+                        <!-- Слайд 2 -->
+                        <div class="slider__slide slider__slide--2">
+                            <div class="slider__content">Скидка 15% на бизнес-литературу</div>
+                        </div>
+                        <!-- Слайд 3 -->
+                        <div class="slider__slide slider__slide--3">
+                            <div class="slider__content">Лучшие книги по программированию</div>
+                        </div>
+                    </div>
+                    <!-- Точки для переключения слайдов -->
+                    <div class="slider__dots">
+                        <span class="slider__dot slider__dot--active"></span>
+                        <span class="slider__dot"></span>
+                        <span class="slider__dot"></span>
+                    </div>
+                </div>
+
+                <!-- Цветные блоки-ссылки справа -->
+                <aside class="promo__banners side-banners">
+                    <a href="#" class="side-banners__item side-banners__item--purple">
+                        <span class="side-banners__text">Новинки сезона</span>
+                    </a>
+                    <a href="#" class="side-banners__item side-banners__item--orange">
+                        <span class="side-banners__text">Скидки до 50%</span>
+                    </a>
+                </aside>
+
+            </div>
+        </section>
+
+        <!-- 3. Секция магазина (Категории + Список книг) -->
+        <section class="catalog">
+            <div class="catalog__container">
+
+                <!-- Левая колонка: Список категорий -->
+                <aside class="catalog__sidebar">
+                    <nav class="categories">
+                        <ul class="categories__list" id="categories-list">
+                            <!-- Класс categories__item--active делает категорию выделенной -->
+                            <li class="categories__item categories__item--active" data-category="Architecture">
+                                Architecture</li>
+                            <li class="categories__item" data-category="Art">Art & Design</li>
+                            <li class="categories__item" data-category="Business">Business & Management</li>
+                            <li class="categories__item" data-category="Computers">Computers & Technology</li>
+                            <li class="categories__item" data-category="Fiction">Fiction & Literature</li>
+                        </ul>
+                    </nav>
+                </aside>
+
+                <!-- Правая колонка: Список книг и кнопка загрузки -->
+                <div class="catalog__content">
+                    <!-- Сетка, куда JS будет загружать карточки книг -->
+                    <div class="books-grid" id="books-container">
+                        <!-- Карточки книг будут генерироваться через JavaScript -->
+                    </div>
+
+                    <!-- Кнопка ленивой загрузки -->
+                    <div class="catalog__more">
+                        <button class="btn-load-more" id="load-more-btn">Load more</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+</html>
